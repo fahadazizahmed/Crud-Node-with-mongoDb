@@ -69,6 +69,73 @@ router.get('/GetValue',function(req,res){
 });
 
 
+router.get('/DeleteValue',function(req,res){
+  //console.log(req.body);
+
+    if (err) throw err;
+    var dbo = db.db("AddEmailPass");
+  //  dbo.collection("addUser").find({email:'Somethin do'}).toArray(function(err, result) {//all the email  with id Somethin do
+
+
+  /*  dbo.collection("addUser").deleteMany({email:'Somethin do'},function(err, result) {
+      if (err) throw err;
+      console.log(result);
+      res.send(result)
+      db.close();
+    });*/
+    dbo.collection("addUser").findOneAndDelete({email:'Basit@gmail.com'}).then(function(result) {
+      if (err) throw err;
+      console.log(result);
+      res.send(result)
+      db.close();
+    });
+// 2 query togehter
+  //  dbo.collection("addUser").deleteMany({email:'Somethin do'});
+
+
+
+  dbo.collection("addUser").findOneAndDelete({_id:new ObjectID('5aeec205d29427477cd36aae')}).then(function(result) {
+    if (err) throw err;
+    console.log(result);
+    res.send(result)
+    db.close();
+  });
+
+
+
+
+
+
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
